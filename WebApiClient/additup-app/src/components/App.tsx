@@ -1,5 +1,8 @@
 import * as React from 'react';
 import './../assets/scss/App.scss';
+// Import Excercise Library from Built version using relative path
+// Ideally this would be from published package location
+import { Helper } from '../../../common/lib/helper';
 
 const reactLogo = require('./../assets/img/react_logo.svg');
 
@@ -33,6 +36,8 @@ export default class App extends React.Component<AppProps, IAppState> {
   }
 
   render() {
+    const h: Helper = new Helper();
+    const result: number = h.add(this.state.a, this.state.b);
     return (
       <div className="app">
         <p>
@@ -41,7 +46,8 @@ export default class App extends React.Component<AppProps, IAppState> {
         </p>
         <p>Your skill level is : {this.state.skillLevel}</p>
         <h2>
-          What is {this.state.a} + {this.state.b} = ? <input type="text" />{' '}
+          What is {this.state.a} + {this.state.b} = ?{' '}
+          <input type="text" value={result} />{' '}
           <button type="button">Submit</button>
         </h2>
       </div>
