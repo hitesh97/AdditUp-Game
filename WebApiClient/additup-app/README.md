@@ -18,6 +18,10 @@
 2. `yarn install` (or `npm install` for npm)
 
 ## Usage
+
+**This project references comon library using relative path of the compiled common Library functions hence its imporant to Compile the common LIB first !**
+**see Readme.md in ../../common/readme.md**
+
 **Development**
 
 `yarn run start-dev`
