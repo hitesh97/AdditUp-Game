@@ -4,7 +4,9 @@
   "description": "commonjs library for AddItUp app written in TypeScript",
   "main": "lib/index.js",
   "scripts": {
-    "test": "node_modules/.bin/mocha -r ts-node/register  tests/**/*.test.ts"
+    "test": "node_modules/.bin/mocha -r ts-node/register  tests/**/*.test.ts",
+    "clean": "rm -rf lib",
+    "build": "npm run clean && tsc"
   },
   "author": "",
   "license": "ISC",
