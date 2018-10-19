@@ -9,5 +9,9 @@ export interface IGameSession {
   Score: number;
 }
 export interface IExcercise {
-  GameSession: IGameSession;
+  GameSession?: IGameSession;
+}
+
+export class Excercise implements IExcercise {
+  GameSession?: IGameSession;
 }
