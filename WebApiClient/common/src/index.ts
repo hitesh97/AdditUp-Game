@@ -1,2 +1,1 @@
-export * from './helper';
-export * from './IExcercise';
+export * from './AddUpService';

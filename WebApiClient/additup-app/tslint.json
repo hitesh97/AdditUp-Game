@@ -9,7 +9,7 @@
     "no-unsafe-finally": true,
     "one-line": [true, "check-open-brace", "check-whitespace"],
     "quotemark": [true, "single", "avoid-escape", "avoid-template"],
-    "semicolon": [true, "always"],
+    "semicolon": [true, "always", "strict-bound-class-methods"],
     "triple-equals": [true, "allow-null-check"],
     "variable-name": [true, "ban-keywords"],
     "whitespace": [

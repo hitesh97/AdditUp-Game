@@ -7,14 +7,14 @@ using WebApi.Model;
 
 namespace WebApi.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/exercise")]
     public class ExerciseController : Controller
     {
         // GET api/exercise
         [HttpGet]
         public Exercise GetExercise()
         {
-            throw new NotImplementedException();
+            return Exercise.createExercise();
         }
 
 
