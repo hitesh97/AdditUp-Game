@@ -71,11 +71,10 @@ export default class App extends React.Component<AppProps, IAppState> {
   };
 
   updateAnswer = (e: React.FormEvent<HTMLInputElement>) => {
-    console.log(e.currentTarget.value);
     this.setState({ curentAnswer: e.currentTarget.value });
   };
 
-  submitAnswer = () => {
+  submitAnswer = async () => {
     // first pause the timer!
     this.setState({
       timerPaused: true,
@@ -90,7 +89,7 @@ export default class App extends React.Component<AppProps, IAppState> {
 
     // check answer with addUpService
     const h: AddUpService = new AddUpService();
-    const isCorrect: boolean = h.isCorrectAnswer(
+    const isCorrect: boolean = await h.isCorrectAnswer(
       this.state.questionModel.a,
       this.state.questionModel.b,
       parseInt(this.state.curentAnswer)
@@ -118,10 +117,9 @@ export default class App extends React.Component<AppProps, IAppState> {
           curentAnswer: ''
         },
         () => {
-          console.log('**************************');
-          console.log(currCorrectCount);
-          console.log(this.state.correctCount);
-          console.log('**************************');
+          console.log('=====================');
+          console.log(this.state);
+          console.log('=====================');
         }
       );
     } else {

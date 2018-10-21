@@ -15,7 +15,7 @@ export class AddUpService {
     const Y: number = Math.floor(Math.random() * 10) + 1;
     return new QuestionModel(newquestionId, X, Y, newTimeInSeconds);
   }
-  isCorrectAnswer(a: number, b: number, answer: number) {
+  async isCorrectAnswer(a: number, b: number, answer: number) {
     return a + b === answer;
   }
 }

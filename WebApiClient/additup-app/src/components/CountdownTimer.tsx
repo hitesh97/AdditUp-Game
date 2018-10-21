@@ -32,18 +32,16 @@ export class CountdownTimer extends Component<TimerProps, TimerState> {
   }
 
   startTimer = (secondsRemaining: number) => {
-    if (!this.props.stopTimer) {
-      const that = this;
-      let duration = secondsRemaining;
-      this.setState({
-        minutes: 0,
-        seconds: secondsRemaining
-      });
-      this.timer = setInterval(function() {
-        duration = duration - 1;
-        that.diff(duration);
-      }, 1000);
-    }
+    let duration = secondsRemaining;
+    this.setState({
+      minutes: 0,
+      seconds: secondsRemaining
+    });
+    const that = this;
+    this.timer = setInterval(function() {
+      duration = duration - 1;
+      that.diff(duration);
+    }, 1000);
   };
   componentWillMount() {
     this.startTimer(this.props.secondsRemaining);
