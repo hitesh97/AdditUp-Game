@@ -1,7 +1,7 @@
 import { QuestionModel } from './QuestionModel';
 
 export class AddUpService {
-  getNewQuestion(previousQuestion?: QuestionModel): QuestionModel {
+  getNewQuestion(previousQuestion?: QuestionModel): Promise<QuestionModel> {
     const newTimeInSeconds: number = previousQuestion
       ? previousQuestion.secondsRemaining - 1
       : 20;
@@ -13,9 +13,12 @@ export class AddUpService {
     // uniqueness of the question sent to two users
     const X: number = Math.floor(Math.random() * 10) + 1;
     const Y: number = Math.floor(Math.random() * 10) + 1;
-    return new QuestionModel(newquestionId, X, Y, newTimeInSeconds);
+    return new Promise<QuestionModel>(resolve => {
+      resolve(new QuestionModel(newquestionId, X, Y, newTimeInSeconds));
+    });
+    // return new QuestionModel(newquestionId, X, Y, newTimeInSeconds);
   }
-  async isCorrectAnswer(a: number, b: number, answer: number) {
+  async ValidateAnswer(a: number, b: number, answer: number) {
     return a + b === answer;
   }
 }

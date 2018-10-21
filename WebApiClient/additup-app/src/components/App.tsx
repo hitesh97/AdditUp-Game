@@ -56,10 +56,10 @@ export default class App extends React.Component<AppProps, IAppState> {
     this.resetGameState();
   };
 
-  startGame = () => {
+  startGame = async () => {
     // get new game from add Up service
     const h: AddUpService = new AddUpService();
-    const questionModel: QuestionModel = h.getNewQuestion();
+    const questionModel: QuestionModel = await h.getNewQuestion();
 
     const newGameState = this.createNewGame(questionModel, false, true);
     this.setState(newGameState);
@@ -89,7 +89,7 @@ export default class App extends React.Component<AppProps, IAppState> {
 
     // check answer with addUpService
     const h: AddUpService = new AddUpService();
-    const isCorrect: boolean = await h.isCorrectAnswer(
+    const isCorrect: boolean = await h.ValidateAnswer(
       this.state.questionModel.a,
       this.state.questionModel.b,
       parseInt(this.state.curentAnswer)
@@ -102,26 +102,19 @@ export default class App extends React.Component<AppProps, IAppState> {
       if (currCorrectCount % 3 === 0) {
         currSkillLevel = prevSkillLevel + 1;
         // cannot increment skill level any more!!
-        if (currSkillLevel >= SkillLevel.Talented) {
-          currSkillLevel = SkillLevel.Talented;
+        if (currSkillLevel >= SkillLevel.Expert) {
+          currSkillLevel = SkillLevel.Expert;
         }
       }
-      const newQuestion = h.getNewQuestion(this.state.questionModel);
-      this.setState(
-        {
-          correctCount: currCorrectCount,
-          isSubmitted: false,
-          skillLevel: currSkillLevel,
-          questionModel: newQuestion,
-          timerPaused: false,
-          curentAnswer: ''
-        },
-        () => {
-          console.log('=====================');
-          console.log(this.state);
-          console.log('=====================');
-        }
-      );
+      const newQuestion = await h.getNewQuestion(this.state.questionModel);
+      this.setState({
+        correctCount: currCorrectCount,
+        isSubmitted: false,
+        skillLevel: currSkillLevel,
+        questionModel: newQuestion,
+        timerPaused: false,
+        curentAnswer: ''
+      });
     } else {
       const currIncorrectCount = previnCorrectCount + 1;
       this.setState({ incorrectCount: currIncorrectCount });
