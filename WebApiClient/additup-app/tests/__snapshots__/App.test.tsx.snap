@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App Tests App is rendered - snapshot 1`] = `
+<div
+  className="app"
+>
+  <img
+    className="logo"
+    height="40"
+    src="test-file-stub"
+    width="40"
+  />
+  <h1>
+    Welcome to Add it Up!!
+  </h1>
+  <div>
+    <h1>
+      Would you like to play the game?
+    </h1>
+    <button
+      onClick={[Function]}
+      type="button"
+    >
+      Start
+    </button>
+  </div>
+</div>
+`;

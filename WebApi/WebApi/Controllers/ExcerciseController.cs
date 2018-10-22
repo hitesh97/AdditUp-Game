@@ -26,9 +26,9 @@ namespace WebApi.Controllers
 
         [HttpPost]
         [Route("api/excercise/validate")]
-        public Boolean PostAnswer([FromBody]Question question, int answer)
+        public Boolean PostAnswer([FromBody]QuestionPostModel questionModel)
         {
-            return question.a + question.b == answer;
+            return questionModel.question.a + questionModel.question.b == questionModel.answer;
         }
 
     }

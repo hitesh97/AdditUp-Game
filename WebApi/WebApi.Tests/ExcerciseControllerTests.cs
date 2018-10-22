@@ -52,10 +52,13 @@ namespace WebApi.Tests
         {
             INumberGenerator numberGenerator = new NumberGenerator();
             ExcerciseController controller = new ExcerciseController(numberGenerator);
+            QuestionPostModel questionPostModel = new QuestionPostModel();
             Question question = new Question();
             question.a = 20;
             question.b = 20;
-            var result = controller.PostAnswer(question, 40);
+            questionPostModel.question = question;
+            questionPostModel.answer = 40;
+            var result = controller.PostAnswer(questionPostModel);
 
             Assert.IsTrue(result);
         }
@@ -65,10 +68,15 @@ namespace WebApi.Tests
         {
             INumberGenerator numberGenerator = new NumberGenerator();
             ExcerciseController controller = new ExcerciseController(numberGenerator);
+
+            QuestionPostModel questionPostModel = new QuestionPostModel();
             Question question = new Question();
             question.a = 20;
             question.b = 30;
-            var result = controller.PostAnswer(question, 40);
+            questionPostModel.question = question;
+            questionPostModel.answer = 40;
+
+            var result = controller.PostAnswer(questionPostModel);
 
             Assert.IsFalse(result);
         }

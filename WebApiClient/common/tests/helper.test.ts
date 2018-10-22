@@ -8,6 +8,6 @@ describe('Unit test description', () => {
   it('should do something specific', () => {
     const h: AddUpService = new AddUpService();
     const result = h.getNewQuestion();
-    chai.assert.equal(result, 6);
+    // chai.assert.equal(result, );
   });
 });

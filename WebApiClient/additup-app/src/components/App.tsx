@@ -88,9 +88,10 @@ export default class App extends React.Component<AppProps, IAppState> {
 
     // check answer with addUpService
     const h: AddUpService = new AddUpService();
+
     const isCorrect: boolean = await h.ValidateAnswer(
       this.state.questionModel,
-      parseInt(this.state.curentAnswer)
+      this.state.curentAnswer !== '' ? parseInt(this.state.curentAnswer) : 0
     );
 
     if (isCorrect) {
@@ -161,7 +162,8 @@ export default class App extends React.Component<AppProps, IAppState> {
               <h1>Game Over!! Would you like to restart the game?</h1>
             )}
             <button type="button" onClick={this.startGame}>
-              yes
+              {!this.state.gameOver && 'Start'}
+              {this.state.gameOver && 'Re-Start'}
             </button>
           </div>
         )}
@@ -175,8 +177,10 @@ export default class App extends React.Component<AppProps, IAppState> {
                 stopTimer={this.state.timerPaused}
               />
               <h2>
-                What is {this.state.questionModel.a} +{' '}
-                {this.state.questionModel.b} = ?{' '}
+                <h3>
+                  What is {this.state.questionModel.a} +{' '}
+                  {this.state.questionModel.b} = ?{' '}
+                </h3>
                 <input
                   type="text"
                   onChange={e => {
