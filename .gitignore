@@ -9,3 +9,7 @@
 WebApi/WebApi/obj/**
 WebApi/WebApi.Tests/obj/**
 WebApi/.vs/WebApi/v15/**
+WebApi/.vs/WebApi/v15/.suo
+WebApi/.vs/WebApi/v15/Server/sqlite3/storage.ide
+WebApi/.vs/WebApi/v15/Server/sqlite3/storage.ide-shm
+WebApi/.vs/WebApi/v15/Server/sqlite3/storage.ide-wal
