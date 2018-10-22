@@ -1,13 +1,13 @@
 import * as mocha from 'mocha';
 import * as chai from 'chai';
-import { Helper } from '../src/helper';
+import { AddUpService } from '../src/AddUpService';
 
 // To execute the tests below "npm run tests"
 
 describe('Unit test description', () => {
   it('should do something specific', () => {
-    const h: Helper = new Helper();
-    const result = h.add(2, 4);
+    const h: AddUpService = new AddUpService();
+    const result = h.getNewQuestion();
     chai.assert.equal(result, 6);
   });
 });

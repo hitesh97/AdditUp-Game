@@ -8,6 +8,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using WebApi.Model;
 
 namespace WebApi
 {
@@ -20,10 +21,13 @@ namespace WebApi
 
         public IConfiguration Configuration { get; }
 
-        // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddTransient<INumberGenerator, NumberGenerator>();
 
+            // Add CORS Middleware so it can be applied 
+            //and allows our frontend client to call APIs
+            // TODO: apply more restrictive CORS policy!! :)
             services.AddCors(options =>
             {
                 options.AddPolicy("CorsPolicy",
@@ -35,7 +39,6 @@ namespace WebApi
             services.AddMvc();
         }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
             if (env.IsDevelopment())
@@ -43,6 +46,7 @@ namespace WebApi
                 app.UseDeveloperExceptionPage();
             }
 
+            // Use application wide CORS POLICY that we just set up in configuration service
             app.UseCors("CorsPolicy");
             app.UseMvc();
         }
