@@ -1,9 +1,7 @@
 import * as React from 'react';
-import * as ReactDOM from 'react-dom';
-import * as TestUtils from 'react-dom/test-utils';
 import App from '../src/components/App';
 import * as renderer from 'react-test-renderer';
-import { shallow, mount, render } from 'enzyme';
+import { shallow } from 'enzyme';
 import * as Enzyme from 'enzyme';
 import * as Adapter from 'enzyme-adapter-react-16';
 

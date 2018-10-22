@@ -19,8 +19,17 @@
 
 ## Usage
 
-**This project references comon library using relative path of the compiled common Library functions hence its imporant to Compile the common LIB first !**
+**1**
+**This project references comon library using relative path of the compiled common Library functions**
+**hence its imporant to Compile the common LIB first !**
 **see Readme.md in ../../common/readme.md**
+
+**2**
+**Before starting this prokect, you must also start the .Net core Web API server, so that the API is available !!**
+**Simplest way to make API available is to open the  'BNPP-AddItUp-React\WebApi\WebApi.sln' in Visual studio 2017**
+**Then Compile and Run the project with 'CTRL+F5'**
+**Once compiled the API will be available on http://localhost:56000**
+**for more information on compilation and running tests on web api, please read BNPP-AddItUp-React\WebApi\README.txt**
 
 **Development**
 
@@ -40,14 +49,15 @@
 
 **All commands**
 
-| Command               | Description                                                              |
-| --------------------- | ------------------------------------------------------------------------ |
-| `yarn run start-dev`  | Build app continuously (HMR enabled) and serve @ `http://localhost:8080` |
-| `yarn run start-prod` | Build app once (HMR disabled) and serve @ `http://localhost:3000`        |
-| `yarn run build`      | Build app to `/dist/`                                                    |
-| `yarn run test`       | Run tests                                                                |
-| `yarn run lint`       | Run Typescript linter                                                    |
-| `yarn run start`      | (alias of `yarn run start-dev`)                                          |
+| Command                | Description                                                              |
+| ---------------------- | ------------------------------------------------------------------------ |
+| `yarn run start-dev`   | Build app continuously (HMR enabled) and serve @ `http://localhost:8080` |
+| `yarn run start-prod`  | Build app once (HMR disabled) and serve @ `http://localhost:3000`        |
+| `yarn run build`       | Build app to `/dist/`                                                    |
+| `yarn run test`        | Run tests  in Watch mode                                                 |
+| `yarn run test:update` | Run tests and updates snapshots in watch mode                            |
+| `yarn run lint`        | Run Typescript linter                                                    |
+| `yarn run start`       | (alias of `yarn run start-dev`)                                          |
 
 **Note**: replace `yarn` with `npm` if you use npm.
 
