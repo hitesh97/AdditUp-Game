@@ -60,7 +60,6 @@ export default class App extends React.Component<AppProps, IAppState> {
     // get new game from add Up service
     const h: AddUpService = new AddUpService();
     const questionModel: QuestionModel = await h.getNewQuestion();
-
     const newGameState = this.createNewGame(questionModel, false, true);
     this.setState(newGameState);
     this.startTimer();
@@ -90,8 +89,7 @@ export default class App extends React.Component<AppProps, IAppState> {
     // check answer with addUpService
     const h: AddUpService = new AddUpService();
     const isCorrect: boolean = await h.ValidateAnswer(
-      this.state.questionModel.a,
-      this.state.questionModel.b,
+      this.state.questionModel,
       parseInt(this.state.curentAnswer)
     );
 

@@ -2,38 +2,46 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.Extensions.Primitives;
 
 namespace WebApi.Model
 {
     public class Question
     {
         public int Id { get; set; }
-        public int X { get; set; }
+        public int a { get; set; }
 
-        public int Y { get; set; }
+        public int b { get; set; }
 
-        public int TimeReamining { get; set; }
+        public int secondsRemaining { get; set; }
 
     }
     public class Exercise
     {
         public Question CurrentQuestion { private set; get; }
+        Random rnd = new Random();
 
+        static Dictionary<string, Question> _dict = new Dictionary<string, Question> { };
         // Method to create an exercise of type a + b = ?
-        public static Exercise createExercise()
+
+        internal Question getQuestionForUser(String userId)
         {
-            Exercise ex = new Exercise();
-            
             Question question = new Question();
-            //question.TimeReamining = (prevQuestion != null) ? prevQuestion.TimeReamining - 1 : 20;
-            question.TimeReamining = 20;
-            Random rnd = new Random(1);
+            question.a = rnd.Next(1, 100);
+            question.b = rnd.Next(1, 100);
 
-            question.X = rnd.Next(10);
-            question.Y = rnd.Next(10);
-            ex.CurrentQuestion = question;
+            //user had been sent a question previously
+            if (_dict.ContainsKey(userId))
+            {   
+                question.secondsRemaining = _dict[userId].secondsRemaining - 1;
+                _dict[userId] = question;
+            }else
+            {
+                question.secondsRemaining = 20;
+                _dict[userId] = question;
+            }
 
-            return ex;
+            return question;
         }
     }
 }
