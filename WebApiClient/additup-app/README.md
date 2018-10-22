@@ -17,7 +17,7 @@
 1. Clone/download repo
 2. `yarn install` (or `npm install` for npm)
 
-## Usage
+## Usage ( You must perform following two steps for the project to run successfully!!)
 
 **1**
 **This project references comon library using relative path of the compiled common Library functions**
