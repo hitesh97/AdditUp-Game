@@ -20,11 +20,13 @@
 ## Usage ( You must perform following two steps for the project to run successfully!!)
 
 * **1: Compile Common UI library project**
+
 **This project references comon library using relative path of the compiled common Library functions**
 **hence its imporant to Compile the common LIB first !**
 **see Readme.md in ../../common/readme.md**
 
 * **2: Compile and run .Net API Library**
+
 **Before running UI project, you must also start the .Net core Web API server, so that the API is available !!**
 **Simplest way to make API available is to open the  'WebApi\WebApi.sln' in Visual studio 2017**
 **Then Compile and Run the project with 'CTRL+F5'**
