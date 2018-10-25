@@ -1,4 +1,3 @@
-# AdditUp-Game
 # Add it up test excercise using React Webpack Typescript
 > Test excercise with minimal starter and HMR.
 
